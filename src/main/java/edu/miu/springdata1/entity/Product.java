@@ -26,8 +26,7 @@ public class Product {
     @JsonManagedReference
     private List<Review> reviews;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    // CREATES FK IN PRODUCT TABLE
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_user")
     @JsonBackReference
     private User user;
