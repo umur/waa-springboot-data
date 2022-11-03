@@ -14,4 +14,6 @@ public interface ProductService {
     Product getById(int id);
 
     List<Product> getAll();
+
+    List<Product> filterProductsByPriceAndColor(Double price, String color);
 }

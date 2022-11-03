@@ -1,6 +1,7 @@
 package edu.miu.springdata1.service.impl;
 
 import edu.miu.springdata1.entity.Product;
+import edu.miu.springdata1.repo.ProductDao;
 import edu.miu.springdata1.repo.ProductRepo;
 import edu.miu.springdata1.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,12 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepo productRepo;
+    // private final ProductDao productDao;
+
+    public List<Product> filterProductsByPriceAndColor(Double price, String color) {
+        return productRepo.filterProductsByPriceAndColor(price, color);
+        //return productDao.filterProductsByPriceAndColor(price, color);
+    }
 
     @Override
     public void save(Product p) {
@@ -34,7 +41,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> getAll() {
-        var result= new ArrayList<Product>();
+        var result = new ArrayList<Product>();
         productRepo.findAll().forEach(result::add);
         return result;
     }

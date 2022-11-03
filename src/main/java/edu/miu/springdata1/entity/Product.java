@@ -17,6 +17,8 @@ public class Product {
     private String name;
     private float price;
 
+    private String color;
+
     //@OneToMany
     // UNCOMMENT FOR UNI-DIRECTIONAL JOIN COLUMN
     //@JoinColumn(name = "product_id")

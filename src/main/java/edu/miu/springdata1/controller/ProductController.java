@@ -20,6 +20,11 @@ public class ProductController {
         this.productService = productService;
     }
 
+    @GetMapping("/filter")
+    public List<Product> filterProductsByPriceAndColor(@RequestParam(required = false)  Double price, @RequestParam(required = false)  String color) {
+        return productService.filterProductsByPriceAndColor(price, color);
+    }
+
     @PostMapping
     public void save(@RequestBody Product p) {
         productService.save(p);
